@@ -1,7 +1,7 @@
 const Pessoa = require('../models/pessoa.js');
 
 class RepositorioExercicio {
-
+    
     async PegarUm(id){
         return Pessoa.findOne({
             where: {
@@ -15,25 +15,39 @@ class RepositorioExercicio {
     }
 
     async Adicionar(pessoa){
-        return Pessoa.create({ ...pessoa})
+        const { nome, email, senha } = pessoa;
+        return Pessoa.create({ nome, email, senha });
     }
-
+    
     async Alterar(id, pessoa){
-        return Pessoa.update(pessoa, {
+    const { nome, email, senha } = pessoa;
+        return Pessoa.update(
+            {
+            nome: nome,
+            email: email,
+            senha: senha
+        }, {
             where: {
-                id
+                id: id
             }
         })
-    }
+      }
 
     async Deletar(id){
+    
         return Pessoa.destroy({
             where: {
                 id
             }
-        })
-    }
-
+        })}
+/*
+        async BuscarPorEmail(email){
+            return Pessoa.findOne({
+                where: {
+                    email
+                }
+            })
+        }*/
 }
 
 module.exports = RepositorioExercicio
