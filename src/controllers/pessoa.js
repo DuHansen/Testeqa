@@ -20,7 +20,7 @@ class ControllerExercicio {
     }
 }
 
-    async PegarTodos(req, res){/*Trocar sintaxe (_) por req */
+    async PegarTodos(_, res){/*Trocar sintaxe (_) por req */
       try {
         const result = await servico.PegarTodos()
 

@@ -17,7 +17,23 @@ class ServicoExercicio {
     async Adicionar(pessoa){
       const { nome, email, senha } = pessoa;
       
-      if(email === '@') {
+      if(id === undefined || isNaN(id)) {
+        throw new Error("Favor corretamente o id.")
+      }
+
+      if (nome === undefined) {
+        throw new Error('Nome é obrigatório');
+      }
+
+      if (email === undefined) {
+        throw new Error('Email é obrigatório');
+      }
+
+      if (senha === undefined) {
+        throw new Error('Senha é obrigatória');
+      }
+
+      if(!email.includes('@')) {
         throw new Error("Colocar email valido!");
       }
       // Validação do nome
