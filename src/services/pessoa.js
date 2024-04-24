@@ -90,7 +90,7 @@ class ServicoExercicio {
         throw new Error('Senha é obrigatória');
       }
       // Validação do email
-      if(email === '@') {
+      if(!email.includes('@')) {
         throw new Error("Colocar email valido!");
       }
       // Validação do nome
